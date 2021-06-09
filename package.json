@@ -5,5 +5,9 @@
   "devDependencies": {
     "shadow-cljs": "2.14.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@accordproject/cicero-core": "^0.22.1",
+    "@accordproject/cicero-engine": "^0.22.1",
+    "coffee-script": "^1.12.7"
+  }
 }
