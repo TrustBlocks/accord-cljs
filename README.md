@@ -46,7 +46,6 @@ npx shadow-cljs watch frontend
 
 #### Shadow-cljs Compiler option discussion
 
-```
 Option #2: :js-provider :external
 shadow-cljs has the concept of a :js-provider built-in. This controls who is actually in charge of providing JS dependencies. For node builds this is just :require which maps all JS requires in your ns forms to regular node require calls. For :browser builds it defaults to :shadow which means shadow-cljs will provide all JS dependencies and bundle them for you. An additional :js-provider I added not too long ago is :external. It is similar to what :bundle from CLJS provides but with few different design choices.
 
@@ -77,7 +76,6 @@ and then include the generated libs.js from webpack and the generated main.js fr
 This is basically an automated version of the double-bundle approach that a few people have been using for a while.
 
 However this is different in that the output is intended to stay separate. JS code lives in one and CLJS code in the other. JS code can’t interact with the CLJS code but CLJS code can access the provided JS dependencies. This does give you a very basic code-splitting out of the box which is a good default IMHO. However as mentiond in my previous post this kind of code-splitting is very limited and not as fine grained as what :js-provider :shadow will give you. You can still use :modules for your CLJS code but your external JS file might get unwieldly large and not fit your :modules properly as JS dependencies won’t be split at all.
-
 
 
 ### References 
