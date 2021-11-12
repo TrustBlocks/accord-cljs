@@ -6,8 +6,13 @@
     "shadow-cljs": "2.14.4"
   },
   "dependencies": {
-    "@accordproject/cicero-core": "^0.22.1",
-    "@accordproject/cicero-engine": "^0.22.1",
-    "coffee-script": "^1.12.7"
+    "@accordproject/cicero-core": "0.22.3-20211028101322",
+    "@accordproject/cicero-engine": "0.2.46",
+    "@accordproject/concerto-core": "1.2.2-20211105160041",
+    "axios": "^0.24.0",
+    "coffee-script": "^1.12.7",
+    "debug": "^4.3.2",
+    "semver": "^7.3.5",
+    "uuid": "^8.3.2"
   }
 }

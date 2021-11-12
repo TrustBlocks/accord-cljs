@@ -1,6 +1,5 @@
 (ns accord-cljs.core
-  (:require ["@accordproject/cicero-core" :as core]
-            ["@accordproject/cicero-engine" :as engine]))
+  (:require ["@accordproject/concerto-core" :as ct]))
 
 (defn init []
   (println "Hello World"))
