@@ -38,48 +38,12 @@ npm install
 ## Dev
 
 ```bash
+
 npx shadow-cljs watch frontend
-```
-
-### Examples
-
-#### Package.json for Concerto that does compile
 
 ```
-{
-  "name": "accord-cljs",
-  "version": "0.0.1",
-  "private": true,
-  "devDependencies": {
-    "shadow-cljs": "2.14.4"
-  },
-  "dependencies": {
-    "@accordproject/concerto-core": "1.2.2-20211105160041",
-    "axios": "^0.24.0",
-    "coffee-script": "^1.12.7",
-    "debug": "^4.3.2",
-    "uuid": "^8.3.2"
-  }
-}
-```
 
-#### Package.json for Cicero that does not Compile
 
-```
-{
-  "name": "accord-cljs",
-  "version": "0.0.1",
-  "private": true,
-  "devDependencies": {
-    "shadow-cljs": "2.14.4"
-  },
-  "dependencies": {
-    "@accordproject/cicero-core": "0.22.3-20211028101322",
-    "@accordproject/cicero-engine": "0.3.0-alpha.9b7a62cc",
-    "coffee-script": "^1.12.7"
-  }
-}
-```
 #### Shadow-cljs Compiler option discussion
 
 ```
@@ -114,26 +78,6 @@ This is basically an automated version of the double-bundle approach that a few 
 
 However this is different in that the output is intended to stay separate. JS code lives in one and CLJS code in the other. JS code can’t interact with the CLJS code but CLJS code can access the provided JS dependencies. This does give you a very basic code-splitting out of the box which is a good default IMHO. However as mentiond in my previous post this kind of code-splitting is very limited and not as fine grained as what :js-provider :shadow will give you. You can still use :modules for your CLJS code but your external JS file might get unwieldly large and not fit your :modules properly as JS dependencies won’t be split at all.
 
-```
-
-### Stock shadow-cljs.edn
-
-;; shadow-cljs configuration
-{:source-paths
- ["src/dev"
-  "src/main"
-  "src/test"]
-
- :dependencies
- []
-
- :dev-http {8080 "public"}
-
- :builds
- {:frontend {:target :browser
-             :modules {:main {:init-fn accord-cljs.core/init}}
-             :compiler-options {:optimizations :none}}}}
-```
 
 
 ### References 
@@ -144,4 +88,3 @@ However this is different in that the output is intended to stay separate. JS co
   * [AWS Amplify with Clojurescript and Storybook](https://davidvujic.blogspot.com/2021/09/clojurescript-amplified.html) 
   * [Reframe Reagent and Slate.js](https://github.com/jhund/re-frame-and-reagent-and-slatejs/blob/master/src/cljs/rrs/ui/slatejs/core.cljs)
   * [Thomas Heller's explanation of why he did not use Webpack](https://code.thheller.com/blog/shadow-cljs/2018/06/15/why-not-webpack.html)
-  * 
